@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from "react"
-import axios from "axios"
+import PlanetsSwapi from "../../api/swapi/planets.swapi.js"
 
 export const PlanetComponent = () => {
   const [planet, setPlanet] = useState({})
 
   useEffect(() => {
-    axios.get('http://swapi.dev/api/planets/1/').then((res) => {
-      setPlanet(res.data)
-    })
+    PlanetsSwapi.get(1).then((res) => setPlanet(res.data))
   }, [])
 
   return (
